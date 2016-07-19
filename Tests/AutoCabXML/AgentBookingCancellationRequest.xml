@@ -1,0 +1,9 @@
+﻿<AgentBookingCancellationRequest>
+  <Agent Id="">
+    <Password>password</Password>
+    <Reference>BookingCancellationRef</Reference>
+    <Time>2012-11-19T13:07:36.2443813+00:00</Time>
+  </Agent>
+  <Vendor Id="" />
+  <AuthorizationReference>AuthorizationRef</AuthorizationReference>
+</AgentBookingCancellationRequest>

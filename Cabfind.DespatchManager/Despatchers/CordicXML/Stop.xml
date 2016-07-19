@@ -1,0 +1,8 @@
+﻿<Stop>
+  <Order>STOPORDERHERE</Order>
+  <Passenger>STOPPASSENGERHERE</Passenger>
+  <Address>STOPADDRESSHERE</Address>
+  <Postcode>STOPPOSTCODEHERE</Postcode>
+  <ContactPhone>STOPCONTACTPHONEHERE</ContactPhone>
+  <ContactOnArrive>STOPCONTACTONARRIVEHERE</ContactOnArrive>
+</Stop>

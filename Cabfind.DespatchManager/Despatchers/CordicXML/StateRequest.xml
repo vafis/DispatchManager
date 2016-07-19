@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SOAPENV:Envelope
+xmlns:SOAPENV="http://www.w3.org/2003/05/soap-envelope"
+xmlns:SOAPENC="http://www.w3.org/2003/05/soap-encoding"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SOAPENV:Body>
+    <StateRequest>
+      <SourceSystem>SOURCESYSTEMHERE</SourceSystem>
+      <SourcePassword>SOURCEPASSWORDHERE</SourcePassword>
+      <SourceJobList>
+        <SourceJobID>SOURCEJOBIDHERE</SourceJobID>
+      </SourceJobList>
+    </StateRequest>
+  </SOAPENV:Body>
+</SOAPENV:Envelope>

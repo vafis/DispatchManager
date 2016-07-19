@@ -1,0 +1,40 @@
+﻿<AgentBookingAvailabilityRequest>
+  <Agent Id="">
+    <Password></Password>
+    <Reference></Reference>
+    <Time></Time>
+  </Agent>
+  <Vendor Id="" />
+  <BookingParameters>
+    <BookingTime></BookingTime>
+    <Pricing>
+      <Currency>GBP</Currency>
+      <PaymentType>Account</PaymentType>
+      <MaxPrice>10000</MaxPrice>
+    </Pricing>
+    <Journey>
+      <From>
+        <Type>Address</Type>
+        <Data>10 Amos Road, Sheffield, South Yorkshire, S9 1BX</Data>
+        <Coordinate>
+          <Latitude>53.412535277777778</Latitude>
+          <Longitude>-1.4195258333333334</Longitude>
+        </Coordinate>
+      </From>
+      <To>
+        <Type>Address</Type>
+        <Data></Data>
+        <Coordinate>
+          <Latitude></Latitude>
+          <Longitude></Longitude>
+        </Coordinate>
+      </To>
+    </Journey>
+    <Ride Type="Passenger">
+      <Count>1</Count>
+      <Facilities>None</Facilities>
+      <DriverType>Any</DriverType>
+      <VehicleType>Saloon</VehicleType>
+    </Ride>
+  </BookingParameters>
+</AgentBookingAvailabilityRequest>

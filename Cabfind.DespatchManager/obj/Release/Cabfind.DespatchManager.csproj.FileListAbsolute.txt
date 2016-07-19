@@ -1,0 +1,65 @@
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.DespatchManager.dll.config
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.DespatchManager.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.DespatchManager.XmlSerializers.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.DespatchManager.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Booking.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Core.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Server.BusinessObjects.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Server.Data.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Newtonsoft.Json.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\DataLayer.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Ionic.Zip.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Utils.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Metadata.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\EntityFramework.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\log4net.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Booking.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Booking.xml
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Core.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Server.BusinessObjects.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Server.Data.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Newtonsoft.Json.xml
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\DataLayer.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\DataLayer.xml
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Ionic.Zip.xml
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Utils.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Metadata.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\EntityFramework.xml
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\log4net.xml
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.csprojResolveAssemblyReference.cache
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.dll
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.pdb
+D:\Sprint 2015-03\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.XmlSerializers.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.DespatchManager.dll.config
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.DespatchManager.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.DespatchManager.XmlSerializers.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.DespatchManager.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Booking.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Core.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Server.BusinessObjects.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Server.Data.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Newtonsoft.Json.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\DataLayer.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Ionic.Zip.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Utils.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Metadata.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\EntityFramework.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\log4net.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Booking.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Booking.xml
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Core.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Server.BusinessObjects.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Server.Data.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Newtonsoft.Json.xml
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\DataLayer.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\DataLayer.xml
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Ionic.Zip.xml
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Utils.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\Cabfind.Metadata.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\EntityFramework.xml
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\bin\Release\log4net.xml
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.csprojResolveAssemblyReference.cache
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.dll
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.pdb
+D:\TFS_GIT\Cabfind\BAU\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.XmlSerializers.dll
+D:\AccountCode\Cabfind.DespatchManager\Cabfind.DespatchManager\obj\Release\Cabfind.DespatchManager.csprojResolveAssemblyReference.cache

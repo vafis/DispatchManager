@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SOAPENV:Envelope 
+  xmlns:SOAPENV="http://www.w3.org/2003/05/soap-envelope"
+  xmlns:SOAPENC="http://www.w3.org/2003/05/soap-encoding" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SOAPENV:Body>
+    <JobRequest>
+      <SourceSystem>SOURCESYSTEMHERE</SourceSystem>
+      <SourcePassword>SOURCEPASSWORDHERE</SourcePassword>
+      <SourceAccount>SOURCEACCOUNTHERE</SourceAccount>
+      <SourceJobType>SOURCEJOBTYPEHERE</SourceJobType>
+      <SourceJobID>SOURCEJOBIDHERE</SourceJobID>
+      <TargetSystem>TARGETSYSTEMHERE</TargetSystem>
+      <Lifetime>LIFETIMEHERE</Lifetime>
+      <PickupTime>PICKUPTIMEHERE</PickupTime>
+      <DriverNotes>DRIVERNOTESHERE</DriverNotes>
+      <BookerName>BOOKERNAMEHERE</BookerName>
+      <BookerPhone>BOOKERPHONEHERE</BookerPhone>
+      <AttributeList>
+        ATTRIBUTEHERE
+      </AttributeList>
+      <StopList>
+        STOPHERE
+      </StopList>
+    </JobRequest>
+  </SOAPENV:Body>
+</SOAPENV:Envelope>

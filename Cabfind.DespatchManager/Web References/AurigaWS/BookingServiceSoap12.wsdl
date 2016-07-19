@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://auriga.co.uk/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://auriga.co.uk/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Auriga XML Booking Service</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://auriga.co.uk/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPartner" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoginResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Logout">
+        <s:complexType />
+      </s:element>
+      <s:element name="LogoutResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookingId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetStatusResult" type="tns:BookingStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="BookingStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="UNKNOWN" />
+          <s:enumeration value="BOOKED" />
+          <s:enumeration value="DESPATCHED" />
+          <s:enumeration value="DONE" />
+          <s:enumeration value="CANCELLED" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="FindStatusExtended">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="start" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="finish" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bookingStatus" type="tns:ArrayOfBookingStatus" />
+            <s:element minOccurs="1" maxOccurs="1" name="offset" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBookingStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BookingStatus" type="tns:BookingStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindStatusExtendedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindStatusExtendedResult" type="tns:ArrayOfBookingStatusExtended" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBookingStatusExtended">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BookingStatusExtended" nillable="true" type="tns:BookingStatusExtended" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BookingStatusExtended">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:BookingStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="vehicle" type="tns:VehicleInformation" />
+          <s:element minOccurs="1" maxOccurs="1" name="lastUpdateTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VehicleInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="position" type="tns:Position" />
+          <s:element minOccurs="0" maxOccurs="1" name="vehicleDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="driverDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Position">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="latitude" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="longitude" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStatusExtended">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookingId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusExtendedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusExtendedResult" type="tns:BookingStatusExtended" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Cancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookingId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelResult" type="tns:BookingStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBooking">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookingId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBookingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBookingResult" type="tns:Booking" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Booking">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="jobNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:BookingStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="pickupDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="passenger" type="tns:Contact" />
+          <s:element minOccurs="0" maxOccurs="1" name="addresses" type="tns:ArrayOfAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="flightInfo" type="tns:FlightInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="numberOfVehicles" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="preferences" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="vehicle" type="tns:VehicleInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="price" type="tns:Price" />
+          <s:element minOccurs="1" maxOccurs="1" name="paymentType" type="tns:PaymentType" />
+          <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:Account" />
+          <s:element minOccurs="0" maxOccurs="1" name="payment" type="tns:Payment" />
+          <s:element minOccurs="0" maxOccurs="1" name="clientReference" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="buildingNameorNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="streetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="townOrDistrict" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="postCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="position" type="tns:Position" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FlightInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="identifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="destination" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="time" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Price">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="isFixed" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="fare" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="distance" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PaymentType">
+        <s:restriction base="s:string">
+          <s:enumeration value="CASH" />
+          <s:enumeration value="ACCOUNT" />
+          <s:enumeration value="CARD" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Account">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Payment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="expiryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="startDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="issueNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="css" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="cardHolderAddress" type="tns:Address" />
+          <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="outcome" type="tns:PaymentOutcome" />
+          <s:element minOccurs="0" maxOccurs="1" name="authCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PaymentOutcome">
+        <s:restriction base="s:string">
+          <s:enumeration value="DECLINED" />
+          <s:enumeration value="ACCEPTED" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Book">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="newBooking" type="tns:Booking" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BookResult" type="tns:ArrayOfBookingResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBookingResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BookingResult" nillable="true" type="tns:BookingResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BookingResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="error" type="tns:BookingError" />
+          <s:element minOccurs="0" maxOccurs="1" name="information" type="tns:BookingInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BookingError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="code" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BookingInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="jobNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:BookingStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="price" type="tns:Price" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Update">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookingId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="modifiedBooking" type="tns:Booking" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateResult" type="tns:BookingResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Pay">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bookingId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardPayment" type="tns:Payment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PayResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayResult" type="tns:PaymentResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PaymentResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="outcome" type="tns:PaymentOutcome" />
+          <s:element minOccurs="0" maxOccurs="1" name="authCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindStatusExtendedSoapIn">
+    <wsdl:part name="parameters" element="tns:FindStatusExtended" />
+  </wsdl:message>
+  <wsdl:message name="FindStatusExtendedSoapOut">
+    <wsdl:part name="parameters" element="tns:FindStatusExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusExtendedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatusExtended" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusExtendedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelSoapIn">
+    <wsdl:part name="parameters" element="tns:Cancel" />
+  </wsdl:message>
+  <wsdl:message name="CancelSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBookingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBooking" />
+  </wsdl:message>
+  <wsdl:message name="GetBookingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBookingResponse" />
+  </wsdl:message>
+  <wsdl:message name="BookSoapIn">
+    <wsdl:part name="parameters" element="tns:Book" />
+  </wsdl:message>
+  <wsdl:message name="BookSoapOut">
+    <wsdl:part name="parameters" element="tns:BookResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:Update" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaySoapIn">
+    <wsdl:part name="parameters" element="tns:Pay" />
+  </wsdl:message>
+  <wsdl:message name="PaySoapOut">
+    <wsdl:part name="parameters" element="tns:PayResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BookingServiceSoap">
+    <wsdl:operation name="Login">
+      <wsdl:documentation>Login. A login is necessary for each new session before bookings can be created, modified or reported on. Login is unique both to aggregator and to taxi operator. Login will logout previous user for session.</wsdl:documentation>
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:documentation>Logout. Invalidates session user. Logon again is permissible.</wsdl:documentation>
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:documentation>Get status for existing booking</wsdl:documentation>
+      <wsdl:input message="tns:GetStatusSoapIn" />
+      <wsdl:output message="tns:GetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindStatusExtended">
+      <wsdl:documentation>Get status for existing booking</wsdl:documentation>
+      <wsdl:input message="tns:FindStatusExtendedSoapIn" />
+      <wsdl:output message="tns:FindStatusExtendedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusExtended">
+      <wsdl:documentation>Get status for existing booking including vehicle position if despatched</wsdl:documentation>
+      <wsdl:input message="tns:GetStatusExtendedSoapIn" />
+      <wsdl:output message="tns:GetStatusExtendedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <wsdl:documentation>Cancel existing booking. Will have no impact if job has already been despatched or completed, and may be denied if booking is too close to despatch</wsdl:documentation>
+      <wsdl:input message="tns:CancelSoapIn" />
+      <wsdl:output message="tns:CancelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBooking">
+      <wsdl:documentation>Get details of existing booking</wsdl:documentation>
+      <wsdl:input message="tns:GetBookingSoapIn" />
+      <wsdl:output message="tns:GetBookingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Book">
+      <wsdl:documentation>Create booking for user for operator identified by login</wsdl:documentation>
+      <wsdl:input message="tns:BookSoapIn" />
+      <wsdl:output message="tns:BookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <wsdl:documentation>Update existing booking. May not be possible once job is despatched</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSoapIn" />
+      <wsdl:output message="tns:UpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Pay">
+      <wsdl:documentation>Pay by credit card. Single stage to decline - no support for Verified by Visa etc. Response is Authcode or declined</wsdl:documentation>
+      <wsdl:input message="tns:PaySoapIn" />
+      <wsdl:output message="tns:PaySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BookingServiceSoap" type="tns:BookingServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://auriga.co.uk/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://auriga.co.uk/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://auriga.co.uk/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindStatusExtended">
+      <soap:operation soapAction="http://auriga.co.uk/FindStatusExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusExtended">
+      <soap:operation soapAction="http://auriga.co.uk/GetStatusExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap:operation soapAction="http://auriga.co.uk/Cancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooking">
+      <soap:operation soapAction="http://auriga.co.uk/GetBooking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Book">
+      <soap:operation soapAction="http://auriga.co.uk/Book" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap:operation soapAction="http://auriga.co.uk/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay">
+      <soap:operation soapAction="http://auriga.co.uk/Pay" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BookingServiceSoap12" type="tns:BookingServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://auriga.co.uk/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="http://auriga.co.uk/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="http://auriga.co.uk/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindStatusExtended">
+      <soap12:operation soapAction="http://auriga.co.uk/FindStatusExtended" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusExtended">
+      <soap12:operation soapAction="http://auriga.co.uk/GetStatusExtended" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Cancel">
+      <soap12:operation soapAction="http://auriga.co.uk/Cancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooking">
+      <soap12:operation soapAction="http://auriga.co.uk/GetBooking" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Book">
+      <soap12:operation soapAction="http://auriga.co.uk/Book" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update">
+      <soap12:operation soapAction="http://auriga.co.uk/Update" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Pay">
+      <soap12:operation soapAction="http://auriga.co.uk/Pay" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BookingService">
+    <wsdl:documentation>Auriga XML Booking Service</wsdl:documentation>
+    <wsdl:port name="BookingServiceSoap" binding="tns:BookingServiceSoap">
+      <soap:address location="http://localhost:9090/IBook-Velocity/services/BookingServiceSoap" />
+    </wsdl:port>
+    <wsdl:port name="BookingServiceSoap12" binding="tns:BookingServiceSoap12">
+      <soap12:address location="http://localhost:8080/IBook-Velocity/services/BookingService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

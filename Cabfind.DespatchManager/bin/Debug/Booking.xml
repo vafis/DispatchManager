@@ -1,0 +1,188 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Booking
+</name>
+</assembly>
+<members>
+<member name="P:Booking.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Booking.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Booking.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:Booking.clsWebSupplierBooking.UpdateWebBookingStatus2(System.String)">
+	<summary>
+ Second Version of UpdateWebBookingStatus function
+ </summary>
+	<remarks>
+ UpdateWebBookingStatus2 does not throws any SQL ERROR throught sql store procedure
+ 
+ </remarks>
+</member><member name="T:Booking.clsBookingNote">
+	<summary>
+ Class for a BookingNote from the clsBooking class
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Booking.clsWebSupplierBookingNote.SelectAllForSupplier(System.String,System.String)">
+	<summary>
+ Selects all websupplier notes for a user on a booking
+ </summary>
+	<param name="userIn">username from the supplier website</param>
+	<param name="strConnectionString">connection string to use</param>
+	<returns>clsWebSupplierBookingNoteCollection of notes refering to the booking</returns>
+	<remarks>uses spWebSupplierBookingNoteSelectAllForSupplier</remarks>
+</member><member name="M:Booking.NotificationData.Insert(System.Int32,System.String,System.Int32,System.Int32,Booking.NotificationType,System.String)">
+	<summary>
+ Insert a record in the Notification table
+ </summary>
+</member><member name="M:Booking.NotificationData.InsertUnique(System.Int32,System.String,System.Int32,System.Int32,Booking.NotificationType,System.String)">
+	<summary>
+ Insert a record in the Notification table only if the notification doesnt exist already
+ </summary>
+	<remarks>A notification is considered to already exist if the SupplierID, JobNumberID and RevisionNumber already have been inserted</remarks>
+</member><member name="M:Booking.NotificationData.NotificationExists(System.Int32,System.Int32,System.Int32,System.String)">
+	<summary>
+ Checks if a supplier notification already exists
+ </summary>
+	<remarks>If a notification exists for a particular supplier for a particular job and revision number then it is assumed that we are trying to create
+ a duplicate notification</remarks>
+</member><member name="M:Booking.NotificationData.AcknowledgeMessage(System.Int32,System.String,System.String)">
+	<summary>
+ Acknowledge
+ </summary>
+	<remarks>If a notification exists for a particular supplier for a particular job and revision number then it is assumed that we are trying to create
+ a duplicate notification</remarks>
+</member><member name="M:Booking.NotificationData.AcknowledgeSystemMessage(System.Int32,System.String,System.String)">
+	<summary>
+ Acknowledge
+ </summary>
+	<remarks>If a notification exists for a particular supplier for a particular job and revision number then it is assumed that we are trying to create
+ a duplicate notification</remarks>
+</member><member name="M:Booking.NotificationData.SelectAllOutstandingForSupplier(System.Int32,System.String)">
+	<summary>
+ Selects all Notifications for a particular Supplier that havent been acknowledged
+ </summary>
+</member><member name="M:Booking.NotificationData.SelectAllOutstandingForSystem(System.String)">
+	<summary>
+ Selects all Notifications that dont apply to a particular supplier
+ </summary>
+</member><member name="M:Booking.NotificationData.SelectSupplierJobsImminent(System.String)">
+	<summary>
+ Selects all Notifications that have been sent to a Web Supplier but they havent acknowledged them yet and the job is imminent
+ </summary>
+</member><member name="M:Booking.NotificationData.ToList(System.Data.SqlClient.SqlDataReader@)">
+	<summary>
+ Creates a collection of Notification type from a data reader
+ </summary>
+</member><member name="T:Booking.NotificationData">
+	<summary>
+ Class for data access to the NotificationTable
+ </summary>
+	<remarks>Notification is used to notify CASPA users of any modifications to jobs</remarks>
+</member><member name="T:Booking.Notification">
+	<summary>
+ Data type for Notification
+ </summary>
+</member><member name="P:Booking.clsBooking.HighlightNotification">
+	<summary>
+ Highlights a row in the status screen as a job that has a notification against it
+ </summary>
+</member><member name="P:Booking.clsBooking.HighlightNotificationImminent">
+	<summary>
+ Highlights a row in the status screen as a job that has a notification against it and the job is due soon
+ </summary>
+</member><member name="P:Booking.clsBooking.NotificationID">
+	<summary>
+ The id of any applicable notification for the job
+ </summary>
+</member><member name="M:Booking.clsBooking.PopulateVias(System.Boolean)">
+	<summary>
+ Populate the Vias and optionally force a refresh from the database
+ </summary>
+	<param name="ForceRefresh"></param>
+	<remarks></remarks>
+</member><member name="M:Booking.clsBooking.PopulateVias(System.Int32)">
+	<summary>
+ Populate the Vias
+ </summary>
+</member><member name="M:Booking.clsBooking.PopulateCostCentres">
+	<summary>
+ Populate Cost Centres
+ </summary>
+</member><member name="M:Booking.clsBooking.CopyViasFrom(System.Int32,System.Boolean)">
+	<summary>
+ Copy the vias from the specified Booking into the current booking
+ </summary>
+	<param name="SaveOnCopy">Set to false for an in memory copy only</param>
+</member><member name="M:Booking.clsBooking.SaveVias">
+	<summary>
+ Save the Vias
+ </summary>
+</member><member name="M:Booking.clsBooking.SelectSearch(System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+	<summary>
+ Search to return bookings from database
+ </summary>
+	<param name="fullObject">Set to true to get full booking information such as Vias and CostCentres</param>
+</member><member name="M:Booking.clsBooking.reformat(System.Collections.ArrayList)">
+	<summary>
+ Helper function that will go through the getDifferencesFormatted arraylist and translate db fields in the description to human-readable
+ </summary>
+	<param name="ArraylistIn">Arraylist of change descriptions (usually output from getDifferencesFormatted function)</param>
+	<returns>Arraylist of values with the field descriptions changed</returns>
+	<remarks>Currently covers Booking class only. Need alterations for BookingiVia and bookingNote objects</remarks>
+</member><member name="M:Booking.clsBooking.getDifferences(System.Int32,System.Int32,System.String)">
+	<summary>
+ Function for getting the differences between two revisions of a booking.
+ </summary>
+	<param name="iRevNo1">First revision number to check</param>
+	<param name="iRevNo2">Second revision number to check</param>
+	<param name="strConnectionString">Connection string to use</param>
+	<returns>Booking collection containing 2 bookings. Each booking only contains data that is different between the revisions</returns>
+	<remarks>Calls getDifferences from the BookingVia class to calculate via differences and getDifferencesFromBase if a via is added / removed</remarks>
+</member><member name="M:Booking.clsBooking.getDifferencesFormatted(System.Int32,System.Int32,System.String)">
+	<summary>
+ Function to check 2 versions of a booking and returns a description of the changes formatted as strings
+ </summary>
+	<param name="iRevNo1">Lower revision number to check</param>
+	<param name="iRevNo2">Higher revision number to check</param>
+	<param name="strConnectionString">Database Connection String to use</param>
+	<returns>Arraylist of string objects. Each string contains a description of the change, such as 'PassengerName changed from Smith to Jones'</returns>
+	<remarks></remarks>
+</member><member name="M:Booking.clsBooking.getWebSupplierRevisions(System.String,System.String)">
+	<summary>
+ Function for WebSupplier Portal to get the changes between the current booking class and the last viewed version of the job
+ The last veiwed version is determined by the date of the last booking note and the dates of previous revisions. 
+ </summary>
+	<param name="strConnectionString">Connection String to use</param>
+	<param name="strUserIn">Username to search for</param>
+	<returns>clsBooking Collection containing 2 clsbooking classes. The first contains original values, the second contains the new values.</returns>
+	<remarks>If no clsBookingNote or previous revision exists, then the booking is being viewed for the first time so comparisons are done against a blank booking</remarks>
+</member><member name="T:Booking.clsBooking">
+	<summary>
+ Main Class for the Booking Object (Booking in the DB) containing 
+ the CRUD methods and additional helper functions. 
+ Other classes that are used in a booking are <see>clsBookingNote</see>, <see>clsBookingVia</see>, <see>clsBookingType</see>
+		<seealso cref="T:Booking.clsBookingNote"/>
+	</summary>
+	<remarks>To be used with clsBookingCollection for dealing with multiple Booking objects
+ </remarks>
+</member><member name="M:Booking.clsBookingCollection.PopulateVias">
+	<summary>
+ Populate the Vias for each booking
+ </summary>
+</member><member name="M:Booking.clsBookingCollection.PopulateCostCentres">
+	<summary>
+ Populate the CostCentres for each booking
+ </summary>
+</member>
+</members>
+</doc>

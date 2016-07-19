@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAPENV:Envelope 
+xmlns:SOAPENV="http://www.w3.org/2003/05/soap-envelope" 
+xmlns:SOAPENC="http://www.w3.org/2003/05/soap-encoding" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SOAPENV:Body>
+    <JobRequest xmlns="http://www.cordicgateway.com/cni">
+      <SourceSystem></SourceSystem>
+      <SourcePassword></SourcePassword>
+      <SourceJobID></SourceJobID>
+      <SourceAccount></SourceAccount>
+      <TargetSystem></TargetSystem>
+      <Lifetime>60</Lifetime>
+      <PickupTime></PickupTime>
+      <BookerName></BookerName>
+      <DriverNotes></DriverNotes>
+      <OperatorNotes></OperatorNotes>
+      <BookerName></BookerName>
+      <BookerPhone></BookerPhone>
+      <BookerEmail></BookerEmail>
+      <StopList>
+      </StopList>
+      <AttributeList>
+        <Attribute></Attribute>
+      </AttributeList>
+    </JobRequest>
+  </SOAPENV:Body>
+</SOAPENV:Envelope>
